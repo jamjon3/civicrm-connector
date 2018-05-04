@@ -3,6 +3,7 @@
     "description": "A connector for CiviCRM's API",
     "type": "library",
     "require": {
+        "php": "^7.1.3",
         "guzzlehttp/guzzle": "^6.3"
     },
     "require-dev": {
