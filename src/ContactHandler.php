@@ -1,4 +1,6 @@
-namespace YMD\\CiviCRMconnector;
+<?php
+
+namespace YMD\CiviCRMconnector;
 
 class ContactHandler 
 {
