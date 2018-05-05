@@ -2,7 +2,7 @@
 
 namespace YMD\CiviCRMconnector;
 
-class ContactHandler 
+class Contact 
 {
 
 }
