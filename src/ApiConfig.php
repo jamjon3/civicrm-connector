@@ -28,8 +28,8 @@ trait ApiConfig {
    * @return Client
    */
   public function getClient(): \GuzzleHttp\Client {
-    if(isset(self::client)) {
-      return self::client;
+    if(isset(self::$client)) {
+      return self::$client;
     } else {
       return $this->buildClient();
     }
@@ -105,7 +105,7 @@ trait ApiConfig {
    * @return Client
    */
   private function buildClient(): \GuzzleHttp\Client {
-    self::client = new Client([
+    self::$client = new Client([
       // Base URI is used with relative requests
       'base_uri' => $this->getConfig()['base_url'],
       // You can set any number of default request options.
@@ -114,6 +114,6 @@ trait ApiConfig {
         'Content-type' => 'application/json'
       ]
     ]);
-    return self::client;
+    return self::$client;
   }  
 }
