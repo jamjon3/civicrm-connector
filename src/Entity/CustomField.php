@@ -19,9 +19,9 @@ class CustomField {
    * Find CustomField by Name
    * 
    * @param string $name
-   * @return array
+   * @return object
    */
-  public function findByGroupAndConditions(string $group,array $conditions = []): array {
+  public function findByGroupAndConditions(string $group,array $conditions = []): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',\array_merge([
       custom_group_id => $group
     ],$conditions)));
@@ -31,9 +31,9 @@ class CustomField {
    * 
    * @param string $group
    * @param string $label
-   * @return array
+   * @return object
    */
-  public function findByGroupAndLabel(string $group,string $label): array {
+  public function findByGroupAndLabel(string $group,string $label): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       custom_group_id => $group,
       label => $label
@@ -44,9 +44,9 @@ class CustomField {
    * 
    * @param string $group
    * @param int $limit
-   * @return array
+   * @return object
    */
-  public function findAllByGroup(string $group,int $limit=100):array {
+  public function findAllByGroup(string $group,int $limit=100):object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       custom_group_id => $group,
       options => [

@@ -19,18 +19,18 @@ class CustomGroup {
   /**
    * Find all CustomGroup
    * 
-   * @return array
+   * @return object
    */
-  public function findAll(): array {    
+  public function findAll(): object {    
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get'));
   }
   /**
    * Find CustomGroup by Id
    * 
    * @param int $id
-   * @return array
+   * @return object
    */
-  public function findById(int $id): array {
+  public function findById(int $id): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       id => $id
     ]));
@@ -39,9 +39,9 @@ class CustomGroup {
    * Find CustomGroup by Title
    * 
    * @param string $title
-   * @return array
+   * @return object
    */
-  public function findByTitle(string $title): array {
+  public function findByTitle(string $title): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       title => $title
     ]));

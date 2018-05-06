@@ -19,18 +19,18 @@ class ContactType {
   /**
    * Find all ContactTypes
    * 
-   * @return array
+   * @return object
    */
-  public function findAll(): array {    
+  public function findAll(): object {    
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get'));
   }
   /**
    * Find ContactType by Id
    * 
    * @param int $id
-   * @return array
+   * @return object
    */
-  public function findById(int $id): array {
+  public function findById(int $id): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       id => $id
     ]));
@@ -39,9 +39,9 @@ class ContactType {
    * Find ContactType by label
    * 
    * @param string $label
-   * @return array
+   * @return object
    */
-  public function findByLabel(string $label): array {
+  public function findByLabel(string $label): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       label => $label
     ]));
@@ -50,9 +50,9 @@ class ContactType {
    * Create a ContactType
    * 
    * @param array $contactTypeArray
-   * @return array
+   * @return object
    */
-  public function create(array $contactTypeArray): array {
+  public function create(array $contactTypeArray): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'create',$contactTypeArray));    
   }
   /**

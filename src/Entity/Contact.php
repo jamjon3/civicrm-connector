@@ -9,18 +9,18 @@ class Contact
   /**
    * Find all Contacts
    * 
-   * @return array
+   * @return object
    */
-  public function findAll(): array {    
+  public function findAll(): object {    
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get'));
   }
   /**
    * Find Contact by Id
    * 
    * @param int $id
-   * @return array
+   * @return object
    */
-  public function findById(int $id): array {
+  public function findById(int $id): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       id => $id
     ]));
@@ -29,15 +29,16 @@ class Contact
    * Find Contacts by an array of conditions
    * 
    * @param array $conditions
-   * @return array
+   * @return object
    */
-  public function findByConditions(array $conditions = []): array {
+  public function findByConditions(array $conditions = []): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',$conditions));
   }
   /**
    * Create a new Contact
    * 
    * @param array $contactarray
+   * @return object
    * 
    * Available keys:
    * 
@@ -86,7 +87,7 @@ class Contact
    * 'sic_code' => '',
    * 'user_unique_id' => '',
    */
-  public function create(array $contactarray): array {
+  public function create(array $contactarray): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'create',$contactarray));    
   }
   /**
