@@ -89,4 +89,29 @@ class Contact
   public function create(array $contactarray): array {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'create',$contactarray));    
   }
+  /**
+   * Show the Contact Create fields
+   * 
+   * @return array
+   */
+  public function getCreateFields(): array {
+    return [
+      'contact_type' => 'string',
+      'contact_sub_type' => 'string',
+      'display_name' => 'string',
+      'nick_name' => 'string',
+      'legal_name' => 'string',
+      'image_URL' => 'string',
+      'first_name' => 'string',
+      'middle_name' => 'string',
+      'last_name' => 'string',
+      'prefix_id' => 'string',
+      'suffix_id' => 'string',
+      'formal_title' => 'string',
+      'job_title' => 'string',
+      'gender_id' => 'string',
+      'birth_date' => 'string',
+      'organization_name' => 'string',
+    ];
+  }
 }

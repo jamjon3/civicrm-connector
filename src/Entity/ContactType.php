@@ -43,7 +43,27 @@ class ContactType {
    */
   public function findByName(string $name): array {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
-      id => $name
+      name => $name
     ]));
   }
+  /**
+   * Create a ContactType
+   * 
+   * @param array $contactTypeArray
+   * @return array
+   */
+  public function create(array $contactTypeArray): array {
+    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'create',$contactTypeArray));    
+  }
+  /**
+   * Returns the fields for CreateType
+   * 
+   * @return array
+   */
+  public function getCreateTypeFields(): array {
+    return [
+      "name" => "string",
+      "label" => "string",
+    ];
+  }  
 }
