@@ -36,14 +36,14 @@ class ContactType {
     ]));
   }
   /**
-   * Find Contact by Name
+   * Find ContactType by label
    * 
-   * @param string $name
+   * @param string $label
    * @return array
    */
-  public function findByName(string $name): array {
+  public function findByLabel(string $label): array {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
-      name => $name
+      label => $label
     ]));
   }
   /**

@@ -25,4 +25,32 @@ class CustomField {
       custom_group_id => $group
     ],$conditions)));
   }
+  /**
+   * Find the CustomField by it's group and label
+   * 
+   * @param string $group
+   * @param string $label
+   * @return array
+   */
+  public function findByGroupAndLabel(string $group,string $label): array {
+    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
+      custom_group_id => $group,
+      label => $label
+    ]));
+  }
+  /**
+   * Find all the fields in a custom group
+   * 
+   * @param string $group
+   * @param int $limit
+   * @return array
+   */
+  public function findAllByGroup(string $group,int $limit=100):array {
+    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
+      custom_group_id => $group,
+      options => [
+        limit => $limit
+      ]
+    ]));
+  }
 }

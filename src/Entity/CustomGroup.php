@@ -36,14 +36,14 @@ class CustomGroup {
     ]));
   }
   /**
-   * Find CustomGroup by Name
+   * Find CustomGroup by Title
    * 
-   * @param string $name
+   * @param string $title
    * @return array
    */
-  public function findByName(string $name): array {
+  public function findByTitle(string $title): array {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
-      id => $name
+      title => $title
     ]));
   }
 }
