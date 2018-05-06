@@ -22,7 +22,7 @@ class ContactType {
    * @return object
    */
   public function findAll(): object {    
-    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get'));
+    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get'))->getBody();
   }
   /**
    * Find ContactType by Id
@@ -33,7 +33,7 @@ class ContactType {
   public function findById(int $id): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       id => $id
-    ]));
+    ]))->getBody();
   }
   /**
    * Find ContactType by label
@@ -44,7 +44,7 @@ class ContactType {
   public function findByLabel(string $label): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       label => $label
-    ]));
+    ]))->getBody();
   }
   /**
    * Create a ContactType
@@ -53,7 +53,7 @@ class ContactType {
    * @return object
    */
   public function create(array $contactTypeArray): object {
-    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'create',$contactTypeArray));    
+    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'create',$contactTypeArray))->getBody();    
   }
   /**
    * Returns the fields for CreateType
