@@ -4,7 +4,7 @@ namespace YMD\CiviCRMconnector\Entity;
 
 class Contact 
 {
-  use YMD\CiviCRMconnector\ApiConfig;
+  use \YMD\CiviCRMconnector\ApiConfig;
   
   /**
    * Find all Contacts

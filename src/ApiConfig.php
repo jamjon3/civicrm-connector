@@ -43,7 +43,7 @@ trait ApiConfig {
    */
   public function buildQuery(string $entity,array $query = []): array {
     return \array_merge($this->getDefaultQuery(),[
-      entity => $entity
+      'entity' => $entity
     ],$query);    
   }
   /**
@@ -59,8 +59,8 @@ trait ApiConfig {
       $this->getConfig()['base_url'], 
       \join('&json=', [ 
         \http_build_query(\array_merge($this->getDefaultQuery(),[
-          entity => $entity,
-          action => $action
+          'entity' => $entity,
+          'action' => $action
         ])),
         empty($query)?"1":\json_encode($query) 
       ])
@@ -82,9 +82,9 @@ trait ApiConfig {
    */
   private function getConfig(): array {
     return [
-      base_url => getenv('CIVICRM_REST_URL', true) ?: getenv('CIVICRM_REST_URL'),
-      site_key => getenv('CIVICRM_SITE_KEY', true) ?: getenv('CIVICRM_SITE_KEY'),
-      api_key => getenv('CIVICRM_API_KEY', true) ?: getenv('CIVICRM_API_KEY')  
+      'base_url' => getenv('CIVICRM_REST_URL', true) ?: getenv('CIVICRM_REST_URL'),
+      'site_key' => getenv('CIVICRM_SITE_KEY', true) ?: getenv('CIVICRM_SITE_KEY'),
+      'api_key' => getenv('CIVICRM_API_KEY', true) ?: getenv('CIVICRM_API_KEY')  
     ];
   }
   /**
@@ -94,9 +94,9 @@ trait ApiConfig {
    */
   private function getDefaultQuery(): array {
     return [
-      key => $this->getConfig()['site_key'],
-      api_key => $this->getConfig()['api_key'],
-      json => '{"sequential":1}'
+      'key' => $this->getConfig()['site_key'],
+      'api_key' => $this->getConfig()['api_key'],
+      'json' => '{"sequential":1}'
     ];
   }
   /**

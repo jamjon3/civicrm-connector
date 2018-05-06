@@ -14,6 +14,7 @@ namespace YMD\CiviCRMconnector\Entity;
  * @author jam
  */
 class CustomField {
+  use \YMD\CiviCRMconnector\ApiConfig;
   /**
    * Find CustomField by Name
    * 

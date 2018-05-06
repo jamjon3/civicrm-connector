@@ -14,7 +14,7 @@ namespace YMD\CiviCRMconnector\Entity;
  * @author jam
  */
 class CustomGroup {
-  use YMD\CiviCRMconnector\ApiConfig;
+  use \YMD\CiviCRMconnector\ApiConfig;
   
   /**
    * Find all CustomGroup
