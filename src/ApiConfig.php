@@ -28,8 +28,8 @@ trait ApiConfig {
    * @return Client
    */
   public function getClient(): \GuzzleHttp\Client {
-    if(isset($this->client)) {
-      return $this->client;
+    if(isset(self::client)) {
+      return self::client;
     } else {
       return $this->buildClient();
     }
@@ -82,9 +82,9 @@ trait ApiConfig {
    */
   private function getConfig(): array {
     return [
-      'base_url' => getenv('CIVICRM_REST_URL', true) ?: getenv('CIVICRM_REST_URL'),
-      'site_key' => getenv('CIVICRM_SITE_KEY', true) ?: getenv('CIVICRM_SITE_KEY'),
-      'api_key' => getenv('CIVICRM_API_KEY', true) ?: getenv('CIVICRM_API_KEY')  
+      'base_url' => \getenv('CIVICRM_REST_URL', true) ?: \getenv('CIVICRM_REST_URL'),
+      'site_key' => \getenv('CIVICRM_SITE_KEY', true) ?: \getenv('CIVICRM_SITE_KEY'),
+      'api_key' => \getenv('CIVICRM_API_KEY', true) ?: \getenv('CIVICRM_API_KEY')  
     ];
   }
   /**
@@ -105,7 +105,7 @@ trait ApiConfig {
    * @return Client
    */
   private function buildClient(): \GuzzleHttp\Client {
-    $this->client = new Client([
+    self::client = new Client([
       // Base URI is used with relative requests
       'base_uri' => $this->getConfig()['base_url'],
       // You can set any number of default request options.
@@ -114,6 +114,6 @@ trait ApiConfig {
         'Content-type' => 'application/json'
       ]
     ]);
-    return $this->client;
+    return self::client;
   }  
 }
