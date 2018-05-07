@@ -22,7 +22,7 @@ class CustomGroup {
    * @return object
    */
   public function findAll(): object {    
-    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get'));
+    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get'))->getBody();
   }
   /**
    * Find CustomGroup by Id
@@ -33,7 +33,7 @@ class CustomGroup {
   public function findById(int $id): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       id => $id
-    ]));
+    ]))->getBody();
   }
   /**
    * Find CustomGroup by Title
@@ -44,6 +44,6 @@ class CustomGroup {
   public function findByTitle(string $title): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       title => $title
-    ]));
+    ]))->getBody();
   }
 }

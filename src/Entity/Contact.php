@@ -12,7 +12,7 @@ class Contact
    * @return object
    */
   public function findAll(): object {    
-    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get'));
+    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get'))->getBody();
   }
   /**
    * Find Contact by Id
@@ -23,7 +23,7 @@ class Contact
   public function findById(int $id): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       id => $id
-    ]));
+    ]))->getBody();
   }
   /**
    * Find Contacts by an array of conditions
@@ -32,7 +32,7 @@ class Contact
    * @return object
    */
   public function findByConditions(array $conditions = []): object {
-    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',$conditions));
+    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',$conditions))->getBody();
   }
   /**
    * Create a new Contact
@@ -88,7 +88,7 @@ class Contact
    * 'user_unique_id' => '',
    */
   public function create(array $contactarray): object {
-    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'create',$contactarray));    
+    return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'create',$contactarray))->getBody();    
   }
   /**
    * Show the Contact Create fields

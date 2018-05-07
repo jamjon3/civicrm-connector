@@ -24,7 +24,7 @@ class CustomField {
   public function findByGroupAndConditions(string $group,array $conditions = []): object {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',\array_merge([
       custom_group_id => $group
-    ],$conditions)));
+    ],$conditions)))->getBody();
   }
   /**
    * Find the CustomField by it's group and label
@@ -37,7 +37,7 @@ class CustomField {
     return $this->getClient()->request('GET', $this->generateCiviCompatibleQueryString($this->getEntity($this),'get',[
       custom_group_id => $group,
       label => $label
-    ]));
+    ]))->getBody();
   }
   /**
    * Find all the fields in a custom group
@@ -52,6 +52,6 @@ class CustomField {
       options => [
         limit => $limit
       ]
-    ]));
+    ]))->getBody();
   }
 }
