@@ -62,9 +62,10 @@ trait ApiConfig {
           'entity' => $entity,
           'action' => $action
         ])),
-        empty($query)?"1":\json_encode($query) 
+        \json_encode(\array_merge([ 'sequential' => 1 ],$query))
       ])
     ]);
+    // empty($query)?"1":\json_encode($query) 
   }  
   /**
    * Take a class instance and returns the short class name (detecting the entity)
