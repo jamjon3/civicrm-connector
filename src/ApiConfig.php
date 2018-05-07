@@ -62,7 +62,7 @@ trait ApiConfig {
           'entity' => $entity,
           'action' => $action
         ])),
-        \json_encode(\array_merge([ 'sequential' => 1 ],$query))
+        \urlencode(\json_encode(\array_merge([ 'sequential' => 1 ],$query)))
       ])
     ]);
     // empty($query)?"1":\json_encode($query) 
